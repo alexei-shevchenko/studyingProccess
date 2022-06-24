@@ -104,3 +104,20 @@ for (let i = 1; i <= data2.length; i++) {
 }
 
 console.log(result2);
+
+// Третее практическое задание
+
+const lines = 5;
+let result3 = '';
+
+for (let i = 0; i <= lines; i++) {
+    for (let j = 0; j < lines - i; j++) {
+        result3 += " ";
+    }
+    for (let j = 0; j < 2 * i + 1; j++) {
+        result3 += "*";
+    }
+    result3 += '\n';
+}
+
+console.log(result3);
