@@ -2,7 +2,15 @@
 
 // Массивы и псевдомассивы № 33
 
-const arr = [1, 2, 3, 6, 8];
+const arr = [13, 11, 31, 26, 8];
+
+arr.sort(compareNum);
+console.log(arr);
+
+function compareNum(a, b) {
+    return a - b;
+}
+
 // arr[99] = 0;
 // console.log(arr.length);
 // console.log(arr);
