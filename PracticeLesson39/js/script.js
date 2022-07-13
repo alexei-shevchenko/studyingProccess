@@ -1,116 +1,55 @@
 'use strict';
 
-// Передача по ссылке или по значению, Spread оператор. Урок № 35
+// Урок номер 39 'Динамическая типизация'
 
-// let a = 5,
-//     b = a;
+// To String
 
-// b = b + 5;
+// 1)
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
 
-// console.log(b);
-// console.log(a);
+// 2) При сложении со строкой - всегда получается строка
+console.log(typeof(5 + ''));
+console.log(typeof(null + ''));
 
-// const obj = {
-//     a: 5,
-//     b: 1
-// };
+const num = 5;
 
-// const copy = obj; // ссылка на obj
+console.log ('https://rozetka.com/catalog/' + num);
 
-// copy.a = 10;
+const fontSize = 26 + 'px';
 
-// console.log(copy);
-// console.log(obj);
+// To Number
 
-// Поверхностное копирование с помощью цикла в функции (подойдёт для копирования
-// объекта без вложенностей(объекты/функции))
+// 1)
+console.log(typeof(Number('4')));
 
-function copy(mainObj) {
-    let objCopy = {};
+// 2)
+console.log(typeof(+'5'));
 
-    let key;
-    for (key in mainObj) {
-        objCopy[key] = mainObj[key];
-    }
+// 3)
+console.log(typeof(parseInt('15px', 10)));
 
-    return objCopy;
+let answ = +prompt('Hello', '');
+
+// To boolean
+
+// 0, '', null, undefined, NaN; - всегда будет false
+
+// 1)
+let switcher = null;
+
+if (switcher) {
+    console.log('Working...');
 }
 
-const numbers = {
-    a: 2,
-    b: 5,
-    c: {
-        x: 7,
-        y: 4
-    }
-};
+switcher = 1;
 
-const newNumbers = copy(numbers);
-
-newNumbers.a = 10;
-newNumbers.c.x = 10;
-
-// console.log(newNumbers);
-// console.log(numbers);
-
-// Поверхностное копирование с помощью Object.assign()
-
-const add = {
-    d: 17,
-    e: 20
-};
-
-const clone = Object.assign({}, add);
-
-clone.d = 20;
-
-// console.log(add);
-// console.log(clone);
-
-// Поверхностное копирование с помощью метода .slice()
-
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();
-
-newArray[1] = 'asdwe';
-console.log(newArray);
-console.log(oldArray);
-
-// Оператор spread - '...'
-
-const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook'];
-
-console.log(internet);
-
-function log(a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
+if (switcher) {
+    console.log('Working...');
 }
 
-const num = [2, 5, 7];
+// 2)
+console.log(typeof(Boolean('4')));
 
-log(...num);
-
-// Поверхностное копирование с помощью spread оператора
-
-const array = ['a', 'b'];
-
-const secondArray = [...array];
-
-secondArray[1] = 'c';
-
-console.log(array);
-console.log(secondArray);
-
-const q = {
-    one: 1,
-    two: 2
-};
-
-const newObj = {...q};
-newObj.one = 3;
-
-console.log(newObj);
+// 3)
+console.log(typeof(!!'4444'));
