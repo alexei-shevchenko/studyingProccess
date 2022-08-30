@@ -3,16 +3,29 @@
 // 1
 
 // function showThis(a, b) {
-//     console.log(this);
+//     console.log(this); // undefined
 //     function sum() {
-//         console.log(this);
-//         return a + b;
+//         console.log(this); // undefined
+//         return a + b; // 9
 //     }
 
 //     console.log(sum());
 // }
 
-// showThis(4, 5);
+// showThis(4, 5); 
+
+// Пример из тестов
+
+// function getSum(a, b) {
+//     function sum() {
+//         console.log(this.a);
+//         return a + b;
+//     }
+ 
+//     console.log(sum());
+// }
+ 
+// getSum(4, 5); // ошибка
 
 // 2
 
@@ -69,25 +82,47 @@
 // 3) this в конструкторах и классах - это новый экземпляр объекта
 // 4) Ручная привязка this: call, apply, bind
 
-const btn = document.querySelector('button');
+// const btn = document.querySelector('button');
 
-btn.addEventListener('click', function() {
-    this.style.backgroundColor = 'red';
-});
+// btn.addEventListener('click', function() {
+//     this.style.backgroundColor = 'red';
+// });
 
-const obj = {
-    num: 5,
-    sayNumber: function() {
-        const say = () => {
-            console.log(this.num);
-        };
+// const obj = {
+//     num: 5,
+//     sayNumber: function() {
+//         const say = () => {
+//             console.log(this.num);
+//         };
         
-        say();
-    }
+//         say();
+//     }
+// };
+
+// obj.sayNumber();
+
+// const double = a => a * 2; // стрелочная функция с одним аргументом (упрощённый синтаксис)
+
+// console.log(double(4));
+
+// Пример из тестов
+
+const urlObj = {
+    protocol: 'https',
+    domain: 'mysite.com'
 };
-
-obj.sayNumber();
-
-const double = a => a * 2; // стрелочная функция с одним аргументом (упрощённый синтаксис)
-
-console.log(double(4));
+ 
+function showCurrentURL() {
+    const extractCurrDomain = () => {
+        return this.domain;
+    };
+    const extractCurrProtocol = () => {
+        return this.protocol;
+    };
+ 
+    console.log(`${extractCurrProtocol()}://${extractCurrDomain()}`);
+}
+ 
+const url = showCurrentURL.bind(urlObj); // Функция
+url(); // https://mysite.com
+console.log(url); // Выводит функцию
