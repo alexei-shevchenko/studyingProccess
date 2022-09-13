@@ -67,7 +67,7 @@
 // };
 
 // sayName.call(user, 'Smith', 'Jhonatan');
-// sayName.apply(user, ['Smith']);
+// sayName.apply(user, ['Smith', 'Peterson']);
 
 // function count(num) {
 //     return this*num;
