@@ -21,3 +21,5 @@ const user = (function(){
         sayHello: privat
     };
 }());
+
+user.sayHello();
